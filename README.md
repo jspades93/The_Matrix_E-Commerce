@@ -4,7 +4,7 @@
   Ever wanted to learn how to cook, build a rocketship, code, or even dodge bullets? 
   
 # Contributing 
-  I am looking for contributions to an idea I have for an e-commerce website that is similar to how Neo in the first matrix was able to learn kung fu by having a program installed in his brain. 
+  I am looking for contributions to an idea I have for an e-commerce website that is similar to how Neo in the first film was able to learn kung fu by having a program installed in his brain. 
   
   
 ![Neo](https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.gif)
