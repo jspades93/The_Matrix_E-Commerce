@@ -2,6 +2,71 @@
 
 const db = require('../server/db')
 const {User} = require('../server/db/models')
+const {Product} = require('../server/db/models')
+
+const products = [
+  {
+    name: 'Kung Fu',
+    price: 29.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Professional Chef',
+    price: 59.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Build A Rocketship',
+    price: 99.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Dodge Bullets',
+    price: 199.99,
+    quantity: 10,
+    imageUrl: null
+  },
+
+  {
+    name: 'Run Faster',
+    price: 99.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Bend Stuff With Your Mind',
+    price: 299.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Coding Expert',
+    price: 99.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Repel Bullets',
+    price: 199.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Unlock Any Door',
+    price: 199.99,
+    quantity: 10,
+    imageUrl: null
+  },
+  {
+    name: 'Become The One',
+    price: 999.99,
+    quantity: 10,
+    imageUrl: null
+  }
+]
 
 async function seed() {
   await db.sync({force: true})
@@ -11,6 +76,12 @@ async function seed() {
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'murphy@email.com', password: '123'})
   ])
+
+  await Promise.all(
+    products.map(product => {
+      return Product.create(product)
+    })
+  )
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

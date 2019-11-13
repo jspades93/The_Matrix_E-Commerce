@@ -12,7 +12,11 @@ const Product = db.define('product', {
   },
   quantity: {
     type: Sequelize.INTEGER,
-    allowNull: true
+    defaultValue: 0
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue: 'no-image.png' // not sure how to import pic here
   }
 })
 
