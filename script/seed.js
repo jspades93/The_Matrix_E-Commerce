@@ -2,7 +2,7 @@
 
 const db = require('../server/db')
 const {User} = require('../server/db/models')
-const {Product} = require('../server/db/models')
+const Product = require('../server/db/models/product')
 
 const products = [
   {
@@ -84,6 +84,7 @@ async function seed() {
   )
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${products.length} products`)
   console.log(`seeded successfully`)
 }
 

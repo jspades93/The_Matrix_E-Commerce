@@ -7,19 +7,16 @@ const Product = db.define('product', {
     allowNull: false
   },
   price: {
-    type: Sequelize.INTEGER,
-    allowNull: false
+    type: Sequelize.DECIMAL(10, 2)
   },
   quantity: {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
   imageUrl: {
-    type: Sequelize.STRING,
-    defaultValue: 'no-image.png' // not sure how to import pic here
+    type: Sequelize.STRING
+    // defaultValue: 'no-image.png' // not sure how to import pic here
   }
 })
 
-module.exports = {
-  Product
-}
+module.exports = Product
