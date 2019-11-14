@@ -1,9 +1,9 @@
-const router = require('express').Router
+const router = require('express').Router()
 const Product = require('../db/models/product')
 module.exports = router
 
-router.get('/', (res, next) => {
+router.get('/', (req, res, next) => {
   Product.findAll()
-    .then(product => res.json(product))
+    .then(product => res.send(product))
     .catch(next)
 })
