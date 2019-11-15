@@ -8,9 +8,23 @@ class Allproducts extends Component {
   }
   render() {
     const {products} = this.props.products
-    const productsList = products.map(p => <ul key={p.id}>{p.name}</ul>)
+    const productsList = products.map(p => (
+      <div key={p.id}>
+        <ul className="col s4">
+          <div>Product: {p.name}</div>
+          <div>Price: {p.price}</div>
+          <div>Qty: {p.quantity}</div>
+        </ul>
+      </div>
+    ))
 
-    return <div>{productsList}</div>
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="dividers">{productsList}</div>
+        </div>
+      </div>
+    )
   }
 }
 
