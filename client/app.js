@@ -4,6 +4,7 @@ import {Navbar} from './components'
 import Routes from './routes'
 import SingleProduct from './components/SingleProduct'
 import Allproducts from './components/Allproducts'
+import Cart from './components/Cart'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Routes />
         <Route exact path="/" component={Allproducts} />
         <Route path="/products/:productId" component={SingleProduct} />
+        <Route path="/cart" component={Cart} />
       </div>
     </BrowserRouter>
   )
