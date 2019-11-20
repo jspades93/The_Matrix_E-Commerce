@@ -14,8 +14,9 @@ const Product = db.define('product', {
     defaultValue: 0
   },
   imageUrl: {
-    type: Sequelize.STRING
-    // defaultValue: 'no-image.png' // not sure how to import pic here
+    type: Sequelize.STRING,
+    defaultValue:
+      'http://saveabandonedbabies.org/wp-content/uploads/2015/08/default-300x169.png'
   }
 })
 

@@ -8,63 +8,63 @@ const products = [
   {
     name: 'Kung Fu',
     price: 29.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Professional Chef',
     price: 59.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
-    name: 'Build A Rocketship',
+    name: 'Fly A Helicopter',
     price: 99.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Dodge Bullets',
     price: 199.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
 
   {
     name: 'Run Faster',
     price: 99.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Bend Stuff With Your Mind',
     price: 299.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Coding Expert',
     price: 99.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
-    name: 'Repel Bullets',
+    name: 'Stop Bullets',
     price: 199.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Unlock Any Door',
     price: 199.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    // imageUrl: null
   },
   {
     name: 'Become The One',
     price: 999.99,
-    quantity: 10,
-    imageUrl: null
+    quantity: 10
+    //imageUrl: null
   }
 ]
 

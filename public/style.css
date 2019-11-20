@@ -3,6 +3,19 @@ body {
   background-color: #000;
   background-image: url(http://1bp.blogspot.com/-b-Xw4dz-OlU/UczX-KXdx-I/AAAAAAAAAho/hgreR-LnwuM/s320/matrix-animated-image.gif);
 }
+/* I have image saved  */
+
+.row {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-content {
+  background: whitesmoke;
+}
+.card .card-image .card-title {
+  color: black;
+  font-weight: 400;
+}
 
 a {
   text-decoration: none;
@@ -13,7 +26,6 @@ label {
 }
 
 nav a {
-  display: inline-block;
   margin: 1em;
 }
 
@@ -30,6 +42,8 @@ div.row {
   padding: 10px;
   margin: 5px 5px 5px;
 }
+
+h5,
 h3 {
   font-size: 1.72rem;
   line-height: 120%;
@@ -37,6 +51,15 @@ h3 {
   color: green;
 }
 
-div.container {
-  background: whitesmoke;
+img {
+  width: 260px;
+}
+div.large.material-icons.right {
+  margin: 0.5em;
+  font-size: 2.4em;
+  cursor: pointer;
+}
+
+a.brand-logo.center {
+  margin: 0;
 }
