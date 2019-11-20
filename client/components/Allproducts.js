@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getAllProducts} from '../store/products'
+import {getAllProducts, addToCart} from '../store/products'
 
 class Allproducts extends Component {
   componentDidMount() {
@@ -52,7 +52,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getProducts: () => dispatch(getAllProducts()),
-  addCart: () => dispatch(addToCart(id))
+  addCart: id => dispatch(addToCart(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allproducts)
