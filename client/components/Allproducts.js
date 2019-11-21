@@ -1,13 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getAllProducts, addToCart} from '../store/products'
+import {getAllProducts} from '../store/products'
+import {addToCart} from '../store/cart'
 
 class Allproducts extends Component {
   componentDidMount() {
     this.props.getProducts()
   }
-  handleClick(id) {
-    this.props.addCart(id)
+  handleClick(p) {
+    console.log('p>>>>>>>', p)
+    const {name, price, quantity, imageUrl} = p
+    this.props.addCart(name, price, quantity, imageUrl)
   }
   render() {
     const {products} = this.props.products
@@ -21,7 +24,7 @@ class Allproducts extends Component {
               to="/"
               className="btn-floating halfway-fab waves-effect waves-light green"
               onClick={() => {
-                this.handleClick(p.id)
+                this.handleClick(p)
               }}
             >
               <i className="material-icons">add</i>
@@ -52,7 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getProducts: () => dispatch(getAllProducts()),
-  addCart: id => dispatch(addToCart(id))
+  addCart: (n, p, q, i) => dispatch(addToCart(n, p, q, i))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allproducts)

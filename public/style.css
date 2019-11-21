@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: #000;
-  background-image: url(http://1bp.blogspot.com/-b-Xw4dz-OlU/UczX-KXdx-I/AAAAAAAAAho/hgreR-LnwuM/s320/matrix-animated-image.gif);
+  background-image: url('./MatrixPics/matrix-animated-image.gif');
 }
 /* I have image saved  */
 
@@ -15,6 +15,27 @@ body {
 .card .card-image .card-title {
   color: black;
   font-weight: 400;
+}
+.cart {
+  margin-top: 40px;
+}
+
+.collection .collection-item {
+  display: flex;
+}
+.collection-item.avatar .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ee6e73;
+  display: block;
+  margin-bottom: 20px;
+}
+.collection .collection-item img {
+  width: 150px;
+  margin-right: 25px;
+}
+.item-desc {
+  align-self: center;
 }
 
 a {

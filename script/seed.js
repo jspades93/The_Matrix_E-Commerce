@@ -3,68 +3,59 @@
 const db = require('../server/db')
 const {User} = require('../server/db/models')
 const Product = require('../server/db/models/product')
+const Cart = require('../server/db/models/cart')
 
 const products = [
   {
     name: 'Kung Fu',
     price: 29.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Professional Chef',
     price: 59.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Fly A Helicopter',
     price: 99.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Dodge Bullets',
     price: 199.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
 
   {
     name: 'Run Faster',
     price: 99.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Bend Stuff With Your Mind',
     price: 299.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Coding Expert',
     price: 99.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Stop Bullets',
     price: 199.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Unlock Any Door',
     price: 199.99,
-    quantity: 10
-    // imageUrl: null
+    quantity: 0
   },
   {
     name: 'Become The One',
     price: 999.99,
-    quantity: 10
-    //imageUrl: null
+    quantity: 0
   }
 ]
 
@@ -76,6 +67,7 @@ async function seed() {
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'murphy@email.com', password: '123'})
   ])
+  const cart = await Promise.all([Cart.create()])
 
   await Promise.all(
     products.map(product => {
@@ -85,6 +77,7 @@ async function seed() {
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${products.length} products`)
+  console.log(`seeded ${cart.length} cart`)
   console.log(`seeded successfully`)
 }
 

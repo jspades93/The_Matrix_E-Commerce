@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {getAllCartItems} from '../store/cart'
 
 class Cart extends Component {
+  componentDidMount() {
+    this.props.getCart()
+  }
+  //NEED TO FIGURE OUT WHY MY CART IS SO DEEPLY NESTED???
+  //might need to get rid of cart db and do an arr???
   render() {
-    const {products} = this.props
-    console.log(this.props)
-    let addedItems = products.length ? (
-      products.map(item => {
+    const {addedItems} = this.props
+    let addedItemsList = addedItems.cart.addedItems.length ? (
+      addedItems.cart.addedItems.map(item => {
         return (
           <li className="collection-item avatar" key={item.id}>
             <div className="product-img">
@@ -42,10 +47,10 @@ class Cart extends Component {
       <p>Nothing To Show.....</p>
     )
     return (
-      <div className="container">
+      <div className="container white">
         <div className="cart">
           <h5>You Have Ordered:</h5>
-          <ul className="collection">{addedItems}</ul>
+          <ul className="collection">{addedItemsList}</ul>
         </div>
       </div>
     )
@@ -53,7 +58,11 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.addedItems
+  addedItems: state
 })
 
-export default connect(mapStateToProps, null)(Cart)
+const mapDispatchToProps = dispatch => ({
+  getCart: () => dispatch(getAllCartItems())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
