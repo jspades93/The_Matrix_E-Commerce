@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getAllCartItems} from '../store/cart'
+import {getAllCartItems, removeCartItem} from '../store/cart'
 
 class Cart extends Component {
   componentDidMount() {
@@ -36,7 +36,11 @@ class Cart extends Component {
                   <i className="material-icons">arrow_drop_down</i>
                 </Link>
               </div>
-              <button className="waves-effect waves-light btn green remove">
+              <button
+                type="button"
+                className="waves-effect waves-light btn green remove"
+                onClick={() => this.props.removeItem(item.id)}
+              >
                 Remove
               </button>
             </div>
@@ -62,7 +66,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCart: () => dispatch(getAllCartItems())
+  getCart: () => dispatch(getAllCartItems()),
+  removeItem: id => dispatch(removeCartItem(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

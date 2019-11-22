@@ -8,8 +8,19 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/', (req, res, next) => {
+router.put('/', (req, res, next) => {
   Cart.create(req.body)
     .then(item => res.send(item))
+    .catch(next)
+})
+
+router.delete('/:cartId', (req, res, next) => {
+  Cart.findOne({
+    where: {id: req.params.cartId}
+  })
+    .then(item => {
+      item.destroy()
+      res.send(item)
+    })
     .catch(next)
 })

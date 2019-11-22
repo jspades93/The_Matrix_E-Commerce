@@ -8,7 +8,6 @@ class Allproducts extends Component {
     this.props.getProducts()
   }
   handleClick(p) {
-    console.log('p>>>>>>>', p)
     const {name, price, quantity, imageUrl} = p
     this.props.addCart(name, price, quantity, imageUrl)
   }
