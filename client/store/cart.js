@@ -20,9 +20,7 @@ export const cartReducer = (state = initState, action) => {
       return {...state, addedItems: action.addedItems}
     case ADD_TO_CART:
       let addedItem = action.item
-      let duplicate = state.addedItems.find(
-        item => addedItem.name === item.name
-      )
+      let duplicate = state.addedItems.find(item => addedItem.id === item.id)
 
       if (duplicate) {
         addedItem.quantity += 1
@@ -41,11 +39,14 @@ export const cartReducer = (state = initState, action) => {
         }
       }
     case REMOVE_ITEM:
+      console.log(action.item)
+      if (action.item.quantity > 1) {
+        action.item.quantity -= 1
+        return {...state, addedItems: [...state.addedItems]}
+      }
       return {
         ...state,
-        addedItems: state.addedItems.filter(
-          item => item.name !== action.item.name
-        )
+        addedItems: state.addedItems.filter(item => item.id !== action.item.id)
       }
     default:
       return state

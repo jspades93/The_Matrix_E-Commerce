@@ -39,7 +39,7 @@ class Cart extends Component {
               <button
                 type="button"
                 className="waves-effect waves-light btn green remove"
-                onClick={() => this.props.removeItem(item.id)}
+                onClick={() => this.props.removeItem(item)}
               >
                 Remove
               </button>
