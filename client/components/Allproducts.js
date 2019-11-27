@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getAllProducts} from '../store/products'
-import {addToCart} from '../store/cart'
+import {addCart} from '../store/cart'
 
 class Allproducts extends Component {
   componentDidMount() {
     this.props.getProducts()
   }
   handleClick(p) {
-    const {name, price, quantity, imageUrl} = p
-    this.props.addCart(name, price, quantity, imageUrl)
+    this.props.addCart(p)
   }
   render() {
     const {products} = this.props.products
@@ -54,7 +53,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getProducts: () => dispatch(getAllProducts()),
-  addCart: (n, p, q, i) => dispatch(addToCart(n, p, q, i))
+  addCart: p => dispatch(addCart(p))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Allproducts)

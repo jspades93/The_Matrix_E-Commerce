@@ -10,12 +10,13 @@ export const removeItem = item => ({type: REMOVE_ITEM, item})
 
 const initState = {
   addedItems: [],
-  total: 0 //might have to include it in the DB
+  total: 0
 }
 
 export const cartReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_ALL_CART:
+      console.log(action.addedItems)
       return {...state, addedItems: action.addedItems}
     case ADD_TO_CART:
       let addedItem = action.item
@@ -51,38 +52,38 @@ export const cartReducer = (state = initState, action) => {
   }
 }
 
-export const getAllCartItems = () => async dispatch => {
-  try {
-    const {data} = await axios.get('/api/cart')
-    dispatch(getCart(data))
-  } catch (err) {
-    console.error('Error getting cart', err)
-  }
-}
-export const addToCart = (
-  name,
-  price,
-  quantity,
-  imageUrl
-) => async dispatch => {
-  try {
-    const {data} = await axios.put('/api/cart', {
-      name,
-      price,
-      quantity,
-      imageUrl
-    })
-    dispatch(addCart(data))
-  } catch (err) {
-    console.error('Error adding to cart', err)
-  }
-}
+// export const getAllCartItems = () => async dispatch => {
+//   try {
+//     const {data} = await axios.get('/api/cart')
+//     dispatch(getCart(data))
+//   } catch (err) {
+//     console.error('Error getting cart', err)
+//   }
+// }
+// export const addToCart = (
+//   name,
+//   price,
+//   quantity,
+//   imageUrl
+// ) => async dispatch => {
+//   try {
+//     const {data} = await axios.put('/api/cart', {
+//       name,
+//       price,
+//       quantity,
+//       imageUrl
+//     })
+//     dispatch(addCart(data))
+//   } catch (err) {
+//     console.error('Error adding to cart', err)
+//   }
+// }
 
-export const removeCartItem = id => async dispatch => {
-  try {
-    await axios.delete(`/api/cart/${id}`)
-    dispatch(removeItem(id))
-  } catch (err) {
-    console.log('Error removing Item', err)
-  }
-}
+// export const removeCartItem = id => async dispatch => {
+//   try {
+//     await axios.delete(`/api/cart/${id}`)
+//     dispatch(removeItem(id))
+//   } catch (err) {
+//     console.log('Error removing Item', err)
+//   }
+// }

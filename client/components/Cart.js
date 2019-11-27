@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getAllCartItems, removeCartItem} from '../store/cart'
+import {getCart, removeItem} from '../store/cart'
 
 class Cart extends Component {
   componentDidMount() {
-    this.props.getCart()
+    this.props.getCart(this.props.addedItems.cart.addedItems)
   }
   //NEED TO FIGURE OUT WHY MY CART IS SO DEEPLY NESTED???
   //might need to get rid of cart db and do an arr???
@@ -66,8 +66,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getCart: () => dispatch(getAllCartItems()),
-  removeItem: id => dispatch(removeCartItem(id))
+  getCart: products => dispatch(getCart(products)),
+  removeItem: id => dispatch(removeItem(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)
