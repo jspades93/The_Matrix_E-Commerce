@@ -5,12 +5,14 @@ const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_ITEM = 'REMOVE_ITEM'
 const INCREASE_QUANTITY = 'INCREASE_QUANITY'
 const DECREASE_QUANTITY = 'DECREASE_QUANTITY'
+const ADD_SHIPPING = 'ADD_SHIPPING'
 
 export const getCart = addedItems => ({type: GET_ALL_CART, addedItems})
 export const addCart = item => ({type: ADD_TO_CART, item})
 export const removeItem = item => ({type: REMOVE_ITEM, item})
 export const increaseQuantity = item => ({type: INCREASE_QUANTITY, item})
 export const decreaseQuantity = item => ({type: DECREASE_QUANTITY, item})
+export const addShipping = () => ({type: ADD_SHIPPING})
 
 const initState = {
   addedItems: [],
@@ -56,10 +58,12 @@ export const cartReducer = (state = initState, action) => {
           addedItems: state.addedItems.filter(
             item => item.id !== action.item.id
           )
-        } //see how to call removeCart?}
+        }
       }
       action.item.quantity -= 1
       return {...state, addedItems: [...state.addedItems]}
+    case ADD_SHIPPING:
+      return {...state, total: state.total + 6}
     default:
       return state
   }

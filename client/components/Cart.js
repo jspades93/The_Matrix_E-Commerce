@@ -7,6 +7,7 @@ import {
   increaseQuantity,
   decreaseQuantity
 } from '../store/cart'
+import Shipping from './Shipping'
 
 class Cart extends Component {
   componentDidMount() {
@@ -68,8 +69,11 @@ class Cart extends Component {
     return (
       <div className="container white">
         <div className="cart">
-          <h5>You Have Ordered:</h5>
+          <h5>Shopping Cart:</h5>
           <ul className="collection">{addedItemsList}</ul>
+          <div>
+            <Shipping />
+          </div>
         </div>
       </div>
     )
