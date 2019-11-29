@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getCart, removeItem} from '../store/cart'
+import {
+  getCart,
+  removeItem,
+  increaseQuantity,
+  decreaseQuantity
+} from '../store/cart'
 
 class Cart extends Component {
   componentDidMount() {
@@ -30,10 +35,20 @@ class Cart extends Component {
               </p>
               <div className="add-remove">
                 <Link to="cart">
-                  <i className="material-icons">arrow_drop_up</i>
+                  <i
+                    className="material-icons"
+                    onClick={() => this.props.increaseQuantity(item)}
+                  >
+                    arrow_drop_up
+                  </i>
                 </Link>
                 <Link to="cart">
-                  <i className="material-icons">arrow_drop_down</i>
+                  <i
+                    className="material-icons"
+                    onClick={() => this.props.decreaseQuantity(item)}
+                  >
+                    arrow_drop_down
+                  </i>
                 </Link>
               </div>
               <button
@@ -67,6 +82,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCart: products => dispatch(getCart(products)),
+  increaseQuantity: product => dispatch(increaseQuantity(product)),
+  decreaseQuantity: product => dispatch(decreaseQuantity(product)),
   removeItem: id => dispatch(removeItem(id))
 })
 

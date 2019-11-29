@@ -1,12 +1,16 @@
-import axios from 'axios'
+//import axios from 'axios'
 
 const GET_ALL_CART = 'GET_ALL_CART'
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_ITEM = 'REMOVE_ITEM'
+const INCREASE_QUANTITY = 'INCREASE_QUANITY'
+const DECREASE_QUANTITY = 'DECREASE_QUANTITY'
 
 export const getCart = addedItems => ({type: GET_ALL_CART, addedItems})
 export const addCart = item => ({type: ADD_TO_CART, item})
 export const removeItem = item => ({type: REMOVE_ITEM, item})
+export const increaseQuantity = item => ({type: INCREASE_QUANTITY, item})
+export const decreaseQuantity = item => ({type: DECREASE_QUANTITY, item})
 
 const initState = {
   addedItems: [],
@@ -16,7 +20,6 @@ const initState = {
 export const cartReducer = (state = initState, action) => {
   switch (action.type) {
     case GET_ALL_CART:
-      console.log(action.addedItems)
       return {...state, addedItems: action.addedItems}
     case ADD_TO_CART:
       let addedItem = action.item
@@ -39,20 +42,29 @@ export const cartReducer = (state = initState, action) => {
         }
       }
     case REMOVE_ITEM:
-      console.log(action.item)
-      if (action.item.quantity > 1) {
-        action.item.quantity -= 1
-        return {...state, addedItems: [...state.addedItems]}
-      }
       return {
         ...state,
         addedItems: state.addedItems.filter(item => item.id !== action.item.id)
       }
+    case INCREASE_QUANTITY:
+      action.item.quantity += 1
+      return {...state, addedItems: [...state.addedItems]}
+    case DECREASE_QUANTITY:
+      if (action.item.quantity < 2) {
+        return {
+          ...state,
+          addedItems: state.addedItems.filter(
+            item => item.id !== action.item.id
+          )
+        } //see how to call removeCart?}
+      }
+      action.item.quantity -= 1
+      return {...state, addedItems: [...state.addedItems]}
     default:
       return state
   }
 }
-
+//>>>>>>Database wasn't working how I wanted it to so, using Redux to hold data instead<<<<<<
 // export const getAllCartItems = () => async dispatch => {
 //   try {
 //     const {data} = await axios.get('/api/cart')
