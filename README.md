@@ -4,9 +4,7 @@
 
 Ever wanted to learn how to cook, build a rocketship, code, or even dodge bullets?
 
-# Contributing
 
-I am looking for contributions to an idea that was inspired by Neo's ability to learn kung fu through a program installed directly into his brain. He was able to learn kung fu in a matter of seconds and I'd like to create a mock e-commerce website that provides means for people to browse similar fictional products. My vision for this website is to create an engaging user experience where people can conveniently search and 'purchase' innovative products
 
 ![Neo](https://media.giphy.com/media/3o7btNhMBytxAM6YBa/giphy.gif)
 
